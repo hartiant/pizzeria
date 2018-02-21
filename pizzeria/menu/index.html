@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pizzeria</title>
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../css/layout.css">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../css/responsive.css">	
+<link href='https://fonts.googleapis.com/css?family=Chelsea Market' rel='stylesheet'>
+</head>
+<body>
+<div class="topnav" id="myTopnav">
+	<a href="../index.html">Etusivu</a>
+	<a href="index.html" class="active">Menu</a>
+	<a href="../tietoja/index.html">Tietoja</a>
+	<a href="../yhteys/index.html">Yhteys</a>
+	<a href="javascript:void(0);"" style="font-size:15px;"" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+<div class="menusivu">
+<h1>Menu</h1>
+<div id="mtBtnContainer">
+	<button class="btn active" onclick="filterSelection('all')"> Kaikki</button>
+	<button class="btn" onclick="filterSelection('pizza')"> Pizza</button>
+	<button class="btn" onclick="filterSelection('kebab')"> Kebab</button>
+	<button class="btn" onclick="filterSelection('hampurilainen')"> Hampurilainen</button>
+</div>
+<div class="row">
+	<div class="column pizza">
+		<div class="content">
+			<img src="../img/pizza_001.jpg" alt="Pizza" style="width:100%">
+			<h4>Pitsa 001</h4>
+			<p>Lorem ipsum dolor...</p> 
+		</div>		
+	</div>
+	<div class="column pizza">
+		<div class="content">
+			<img src="../img/pizza_002.jpg" alt="Pizza 002" style="width:100%">
+			<h4>Pizza 002</h4>
+			<p>Lorem ipsum dolor..</p>
+		</div>
+	</div>
+	<div class="column pizza">
+		<div class="content">
+			<img src="../img/pizza_003.jpg" alt="Pizza" style="width:100%">
+			<h4>Pitsa 003</h4>
+			<p>Lorem ipsum dolor...</p> 
+		</div>		
+	</div>
+	<div class="column kebab">
+		<div class="content">
+			<img src="../img/kebab_doner.jpg" alt="Döner Kebeb" style="width:100%">
+			<h4>Döner Kebab</h4>
+			<p>Lorem ipsum dolor..</p>
+		</div>
+	</div>
+	<div class="column kebab">
+		<div class="content">
+			<img src="../img/kebab_iskender.jpg" alt="Kebab Iskender" style="width:100%">
+			<h4>Iskender Kebab</h4>
+			<p>Lorem ipsum dolor...</p> 
+		</div>		
+	</div>
+	<div class="column kebab">
+		<div class="content">
+			<img src="../img/kebab_roll.jpg" alt="Kebab Roll" style="width:100%">
+			<h4>Rulla Kebab</h4>
+			<p>Lorem ipsum dolor..</p>
+		</div>
+	</div>
+	<div class="column hampurilainen">
+		<div class="content">
+			<img src="../img/hampurilainen_001.jpg" alt="Hampurilainen 001" style="width:100%">
+			<h4>Hampurilainen 001</h4>
+			<p>Lorem ipsum dolor...</p> 
+		</div>		
+	</div>
+	<div class="column hampurilainen">
+		<div class="content">
+			<img src="../img/hampurilainen_002.jpg" alt="Hampurilainen 002" style="width:100%">
+			<h4>Hampurilainen 002</h4>
+			<p>Lorem ipsum dolor..</p>
+		</div>
+	</div>
+	<div class="column hampurilainen">
+		<div class="content">
+			<img src="../img/hampurilainen_003.jpg" alt="Hampurilainen 003" style="width:100%">
+			<h4>Hampurilainen 003</h4>
+			<p>Lorem ipsum dolor..</p>
+		</div>
+	</div>
+</div>
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+}
+
+function AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+	var x = document.getElementById("myTopnav");
+	if (x.className === "topnav") {
+		x.className += " responsive";
+		} else {
+			x.className = "topnav";
+		}
+	}
+</script>
+</body>	
+</html>

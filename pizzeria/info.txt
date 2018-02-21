@@ -1,0 +1,5 @@
+versio 001 - 21.2.2018
+
+Kuvaus : Neljä sivuinen Pizzaria-sivu, joka on säädetty responsiivisesti pöytäkoneelle, läppärille, tabletille ja puhelimelle. Kaikki kuvat ovat ilmaisista kuvapankeista. Javascripts treeniä navikoinnissa, sliderissa ja Menu-sivun filtterissä.
+
+ 
